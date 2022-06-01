@@ -1,30 +1,31 @@
-let str1 = "Who is the best cricket player?";
-let str2 = "His name is Imran Khan";
+let str1 = "who is the best cricket player?";
+let str2 = "his name is Imran Khan";
 let found = 0;
 let found2 = 0;
+str1Array = str1.split(" ");
+str2Array = str2.split(" ");
 storeArr = [
   [["a", "the", "is", "an"], 1],
   [["who", "why", "which"], 3],
   [["his", "her"], 2],
 ];
-for (let i = 0; i <= 2; i++) {
-  storeArr[i][0].forEach((element, index) => {
-    string1 = str1.includes(element);
-    if (string1 === true) {
-      found = storeArr[i][1];
-      i++;
-    }
-  });
 
-  for (let i = 0; i <= 2; i++) {
-    storeArr[i][0].forEach((element, index) => {
-      string1 = str2.includes(element);
-      if (string1 === true) {
-        found2 = storeArr[i][1];
-        i++;
-      }
-    });
+for (let i = 0; i <= 2; i++) {
+  for (let j = 0; j <= 2; j++) {
+    if (str1Array.includes(storeArr[i][0][j])) {
+      found += storeArr[i][1];
+      break;
+    }
   }
-  console.log(found);
-  console.log(found2);
 }
+for (let i = 0; i <= 2; i++) {
+  for (let j = 0; j <= 2; j++) {
+    if (str2Array.includes(storeArr[i][0][j])) {
+      found2 += storeArr[i][1];
+      break;
+    }
+  }
+}
+
+console.log(found);
+console.log(found2);
